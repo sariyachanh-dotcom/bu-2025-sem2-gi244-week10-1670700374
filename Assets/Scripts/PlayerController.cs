@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     public float gravityModifier;
     public ParticleSystem explosionParticle;
     public ParticleSystem dirtParticle;
+    public float playerHp;
+    
 
     public AudioClip jumpSfx;
     public AudioClip crashSfx;
@@ -62,7 +64,9 @@ public class PlayerController : MonoBehaviour
         else if (collision.gameObject.CompareTag("Obstacle"))
         {
             Debug.Log("Game Over!");
+            Debug.Log("HP = 0");
             gameOver = true;
+            playerHp = 0;
             playerAnim.SetBool("Death_b", true);
             playerAnim.SetInteger("DeathType_int", 1);
             explosionParticle.Play();
