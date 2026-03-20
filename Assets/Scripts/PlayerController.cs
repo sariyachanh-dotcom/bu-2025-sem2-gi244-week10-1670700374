@@ -42,11 +42,13 @@ public class PlayerController : MonoBehaviour
     {
         if (jumpAction.triggered && isOnGround && !gameOver)
         {
+            
             rb.AddForce(jumpForce * Vector3.up, ForceMode.Impulse);
             isOnGround = false;
             playerAnim.SetTrigger("Jump_trig");
             dirtParticle.Stop();
             playerAudio.PlayOneShot(jumpSfx);
+            isOnGround = true;
         }
     }
 
